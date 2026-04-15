@@ -1,5 +1,19 @@
 import random
 
+def get_high_score():
+    try:
+        file = open("high_score.txt", "r")
+        high_score = int(file.read())
+        file.close()
+        return high_score
+    except:
+        return 0
+
+def save_high_score(score):
+    file = open("high_score.txt", "w")
+    file.write(str(score))
+    file.close()
+
 def play_game():
     print()
     print("Choose a difficulty level:")
