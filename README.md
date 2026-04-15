@@ -38,5 +38,4 @@ python number_guessing_game.py
 ## Possible Improvements
 - Add a limited number of attempts
 - Add hints (warmer/colder system)
-- Store high scores
 - Create a graphical user interface (GUI)
