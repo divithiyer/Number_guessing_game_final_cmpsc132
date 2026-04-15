@@ -40,9 +40,15 @@ def play_game():
     secret_number = random.randint(low, high)
     guess = 0
     attempts = 0
+    high_score = get_high_score()
 
     print()
     print("I have chosen a number between", low, "and", high)
+
+    if high_score == 0:
+        print("No high score yet.")
+    else:
+        print("Current high score:", high_score, "attempts")
 
     while guess != secret_number:
         user_input = input("Enter your guess: ")
@@ -59,6 +65,10 @@ def play_game():
                     print("Too high")
                 else:
                     print("Correct! You guessed it in", attempts, "attempts.")
+
+                    if high_score == 0 or attempts < high_score:
+                        print("New high score!")
+                        save_high_score(attempts)
             else:
                 print("Enter a number between", low, "and", high)
         else:
@@ -72,7 +82,7 @@ def main():
     while play_again == "yes":
         play_game()
         print()
-        play_again = input("Do you want to play again? Type yes or no: ")
+        play_again = input("Do you want to play again? Type yes or no: ").lower()
 
     print("Thanks for playing!")
 
